@@ -73,7 +73,7 @@ class LoginScreenState extends State<LoginScreen> {
 
       if (firebaseUser != null) {
         controller.reverse();
-        var response = await _applicationBloc.registerUser(firebaseUser);
+        await _applicationBloc.registerUser(firebaseUser);
         await prefs.setString(AppConstants.KEY_USER_UID, firebaseUser.uid);
         contacts = await _applicationBloc.getUserList();
         Navigator.push(context,
